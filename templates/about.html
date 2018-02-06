@@ -16,9 +16,11 @@ stubborn Dwarves from rash action. The superstitious Dwarves also considered
 thirteen to be an unlucky number, and as Gandalf had planned to leave on other
 business, welcomed a fourteenth to fill in to their party.</p>
 
+
 {% for member in company_data %}
+<div class="row featurette">
 {% if loop.index % 2 != 0 %}
-<div class="row featurette">
+
     <div class="col-md-7">
         <h3>{{ member.name }}</h3>
         <p>{{ member.description }}</p>
@@ -26,10 +28,9 @@ business, welcomed a fourteenth to fill in to their party.</p>
     <div class="col-md-5">
         <img src="{{ member.image_source }}" alt="Picture of {{ member.name }}"></img>
     </div>
-</div>
-<hr>
+
 {% else %}
-<div class="row featurette">
+
     <div class="col-md-5">
         <img src="{{ member.image_source }}" alt="Picture of {{ member.name }}"></img>
     </div>
@@ -37,9 +38,12 @@ business, welcomed a fourteenth to fill in to their party.</p>
         <h3>{{ member.name }}</h3>
         <p>{{ member.description }}</p>
     </div>
-</div>
-<hr>
 {% endif %}
+</div>
+{% if loop.index != 14 %}
+<hr class="featurette-divider">
+{% endif %}
+
 {% endfor %}
 
 
